@@ -1,6 +1,5 @@
 import 'package:bright_weddings/Component/Forms/login_form.dart';
 import 'package:bright_weddings/Component/footer.dart';
-import 'package:bright_weddings/Component/sidebar.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import '../../Helper/colors.dart';
@@ -17,20 +16,7 @@ class LoginWeb extends StatelessWidget {
           SizedBox(
             height: 5.0.h,
           ),
-          Center(child: Row(
-            children: [
-              SizedBox(
-                width: 10.0.w
-                ,
-              ),
-              Sidebar(),
-              SizedBox(
-                width: 10.0.w
-                ,
-              ),
-              LoginForm(),
-            ],
-          ),),
+          Center(child: LoginForm(),),
           SizedBox(
             height: 7.0.h,
           ),
