@@ -1,4 +1,6 @@
 import 'package:bright_weddings/View/Login/login.dart';
+import 'package:bright_weddings/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:bright_weddings/Helper/get_di.dart' as di;
@@ -7,6 +9,7 @@ import 'Helper/size_config.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   di.init();
   runApp(MyApp());
 }
