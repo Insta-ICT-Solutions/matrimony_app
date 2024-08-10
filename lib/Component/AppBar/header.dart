@@ -1,18 +1,19 @@
-import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../Helper/colors.dart';
 
-class Header extends StatelessWidget {
+class Header extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onNext;
   final VoidCallback? onBack;
-  const Header({super.key, this.onNext, this.onBack});
+  Header({Key? key, this.onNext, this.onBack}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      height: 6.0.h,
+      height: 6.0.h, // Using SizeConfig for height
       width: screenWidth,
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(
@@ -36,8 +37,24 @@ class Header extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  onBack!=null&&onNext!=null ? IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 0.9.t,)) : Container(),
-                  onBack!=null&&onNext!=null ? IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_ios_rounded, color: Colors.white, size: 0.9.t,)) : Container(),
+                  onBack != null
+                      ? IconButton(
+                      onPressed: onBack,
+                      icon: Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: Colors.white,
+                        size: 0.9.t,
+                      ))
+                      : Container(),
+                  onNext != null
+                      ? IconButton(
+                      onPressed: onNext,
+                      icon: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Colors.white,
+                        size: 0.9.t,
+                      ))
+                      : Container(),
                   Container(
                     width: 1.0,
                     color: Colors.white,
@@ -180,4 +197,7 @@ class Header extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(6.0.h);
 }

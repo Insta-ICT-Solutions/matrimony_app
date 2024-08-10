@@ -1,4 +1,4 @@
-import 'package:bright_weddings/Component/AppBar/custom_appbar.dart';
+import 'package:bright_weddings/Component/AppBar/header.dart';
 import 'package:bright_weddings/Component/Forms/info_form_one.dart';
 import 'package:bright_weddings/Component/Forms/info_form_two.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
@@ -16,11 +16,16 @@ class NewClientRegistrationWeb extends StatelessWidget {
     final NewRegistrationController controller = Get.find<NewRegistrationController>();
 
     return Scaffold(
-      appBar: CustomAppbar(),
+      appBar: Header(
+        onBack: ()=>Get.back(),
+      ),
       backgroundColor: backgroundColor,
       body: Obx(() {
         return ListView(
           children: [
+            SizedBox(
+              height: 4.0.h,
+            ),
             AnimatedSwitcher(
               duration: Duration(milliseconds: 500),
               transitionBuilder: (Widget child, Animation<double> animation) {

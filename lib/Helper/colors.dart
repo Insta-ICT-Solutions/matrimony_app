@@ -18,3 +18,5 @@ final Color dashboardSelectedColor = Color(0xFF03B0F7);
 final Color dashboardSelectedOneColor = Color(0xFFE4F1FC);
 final Color dashboardSelectedTwoColor = Color(0xFFF7FBFE);
 final Color headerTitleColor = Color(0xFF433506);
+final Color darkYellowColor = Color(0xFFF6AF04);
+final Color otherTextColor = Color(0xFFAB8342);

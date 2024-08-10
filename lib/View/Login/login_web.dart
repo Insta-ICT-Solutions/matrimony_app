@@ -1,8 +1,8 @@
 import 'package:bright_weddings/Component/Forms/login_form.dart';
 import 'package:bright_weddings/Component/footer.dart';
-import 'package:bright_weddings/Component/header.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
+import '../../Component/AppBar/header.dart';
 import '../../Helper/colors.dart';
 
 class LoginWeb extends StatelessWidget {
@@ -11,10 +11,10 @@ class LoginWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: Header(),
       backgroundColor: backgroundColor,
       body: ListView(
         children: [
-          Header(),
           SizedBox(
             height: 5.0.h,
           ),
