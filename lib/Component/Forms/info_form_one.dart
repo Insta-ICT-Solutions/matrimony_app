@@ -1,9 +1,11 @@
+import 'package:bright_weddings/Component/Buttons/hollow_button.dart';
 import 'package:bright_weddings/Component/Buttons/submit_button.dart';
 import 'package:bright_weddings/Component/TextFields/input_field.dart';
 import 'package:bright_weddings/Controller/new_registration_controller.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/path_constants.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,7 +21,7 @@ class InfoFormOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60.h,
+      height: 55.h,
       width: 130.w,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
@@ -72,6 +74,7 @@ class InfoFormOne extends StatelessWidget {
           ),
           Expanded(
               child: ListView(
+                physics: NeverScrollableScrollPhysics(),
             padding: EdgeInsets.symmetric(vertical: 3.0.h, horizontal: 17.0.w),
             children: [
               Text(
@@ -97,10 +100,11 @@ class InfoFormOne extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 0.9.t,
                   color: Colors.black,
+                  fontWeight: FontWeight.w500
                 ),
               ),
               SizedBox(
-                height: 1.0.h,
+                height: 0.5.h,
               ),
               InputField(
                   labelText: "Enter Full Name",
@@ -109,15 +113,71 @@ class InfoFormOne extends StatelessWidget {
               SizedBox(
                 height: 1.5.h,
               ),
+              Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Birthdate:",
+                      style: GoogleFonts.poppins(
+                        fontSize: 0.9.t,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Obx(()=>HollowButton(title: controller.formattedDate.value, onTap: (){
+                      controller.pickDate(context);
+                    }, height: 3.0.h, width: 15.0.w),)
+                  ],
+                ),
+                SizedBox(
+                  width: 10.0.w,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Upload photo:",
+                      style: GoogleFonts.poppins(
+                        fontSize: 0.9.t,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                      Obx(()=>HollowButton(title: controller.selectedFileName.value, onTap: (){
+                        controller.pickFile(FileType.image);
+                      }, height: 3.0.h, width: 17.0.w),)
+                  ],
+                ),
+              ],
+                            ),
+              SizedBox(
+                height: 1.5.h,
+              ),
               Text(
                 "Cast:",
                 style: GoogleFonts.poppins(
                   fontSize: 0.9.t,
                   color: Colors.black,
+                  fontWeight: FontWeight.w500
                 ),
               ),
               SizedBox(
-                height: 1.0.h,
+                height: 0.5.h,
               ),
               InputField(
                   labelText: "Enter Cast",
@@ -131,10 +191,11 @@ class InfoFormOne extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 0.9.t,
                   color: Colors.black,
+                  fontWeight: FontWeight.w500
                 ),
               ),
               SizedBox(
-                height: 1.0.h,
+                height: 0.5.h,
               ),
               InputField(
                   labelText: "Enter Subcast",
@@ -148,10 +209,11 @@ class InfoFormOne extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 0.9.t,
                   color: Colors.black,
+                  fontWeight: FontWeight.w500
                 ),
               ),
               SizedBox(
-                height: 1.0.h,
+                height: 0.5.h,
               ),
               InputField(
                   labelText: "Enter Devak",
