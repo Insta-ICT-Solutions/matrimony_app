@@ -2,7 +2,7 @@ import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../Mock API/user_list.dart';
+import '../../Mock API/user_list.dart';
 import 'image_card.dart';
 
 class NewProfile extends StatelessWidget {

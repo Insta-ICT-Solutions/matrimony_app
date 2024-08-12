@@ -1,5 +1,5 @@
-import 'package:bright_weddings/Component/image_card.dart';
-import 'package:bright_weddings/Component/sidebar_item.dart';
+import 'package:bright_weddings/Component/Dashboard/image_card.dart';
+import 'package:bright_weddings/Component/Dashboard/sidebar_item.dart';
 import 'package:bright_weddings/Controller/screen_controller.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/size_config.dart';

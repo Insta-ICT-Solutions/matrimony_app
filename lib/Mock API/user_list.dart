@@ -29,7 +29,7 @@ final List<Map<String, dynamic>> userList = [
     'gan': 'Elephant',
     'phone_number': '0987654321',
     'education': 'M.S. (Mechanical Engineering)',
-    'demands': '',
+    'demands': 'Looking for a well-settled partner',
   },
   {
     'image_url': 'https://rn53themes.net/themes/matrimo/images/profiles/4.jpg',
