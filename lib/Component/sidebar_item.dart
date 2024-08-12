@@ -17,11 +17,11 @@ class SidebarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        isSelected ? Container(margin: EdgeInsets.only(right: 0.8.w),height: 1.5.h,width: 5, color: dashboardSelectedColor,) : Container(margin: EdgeInsets.only(right: 0.8.w),height: 1.5.h,width: 5),
+        isSelected ? Container(margin: EdgeInsets.only(right: 0.8.w),height: 1.8.h,width: 5, color: dashboardSelectedColor,) : Container(margin: EdgeInsets.only(right: 0.8.w),height: 1.5.h,width: 5),
         Container(
           alignment: Alignment.center,
           height: 3.0.h,
-          width: 22.6.w,
+          width: 33.0.w,
           decoration: BoxDecoration(
               gradient: isSelected ?LinearGradient(colors: [
                 dashboardSelectedOneColor,
@@ -33,8 +33,7 @@ class SidebarItem extends StatelessWidget {
           ),
           child: ListTile(
             leading: leadingPath!=null ? SvgPicture.asset(leadingPath!) : null,
-            horizontalTitleGap: 0,
-            visualDensity: VisualDensity.compact,
+            isThreeLine: false,
             onTap: onTap,
             title: Text(title, style: GoogleFonts.poppins(fontSize: 1.0.t, color: isSelected ? dashboardSelectedColor : Colors.black),),
           ),

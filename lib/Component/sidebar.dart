@@ -18,8 +18,8 @@ class Sidebar extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: 1.45.w,
       ),
-      height: 35.0.h,
-      width: 30.0.w,
+      height: 40.0.h,
+      width: 40.0.w,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
@@ -37,15 +37,13 @@ class Sidebar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: 22.7.w,
-            height: 15.0.h,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: ImageCard(imageUrl: "https://media.istockphoto.com/id/1368965646/photo/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-happy-life-style-friendship.jpg?s=612x612&w=0&k=20&c=qYST1TAGoQGV_QnB_vMd4E8jdaQUUo95Sa2JaKSl_-4="),
-            ),
+            margin: EdgeInsets.all(20),
+            width: 35.w,
+            height: 12.0.h,
+            child: ImageCard(imageUrl: 'https://rn53themes.net/themes/matrimo/images/profiles/12.jpg',)
           ),
           SizedBox(
-            height: 2.5.h,
+            height: 1.5.h,
           ),
           Obx(()=>SidebarItem(title: "Dashboard", isSelected: controller.selectedScreen.value == 0, onTap: ()=>controller.selectedScreen.value = 0)),
           SizedBox(

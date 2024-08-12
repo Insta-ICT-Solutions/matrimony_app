@@ -1,3 +1,4 @@
+import 'package:bright_weddings/View/Dashboard/dashboard.dart';
 import 'package:bright_weddings/View/Login/login.dart';
 import 'package:bright_weddings/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
                   colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF3D48A)),
                   primaryColor: Color(0xFFF3D48A),
                 ),
-                home: LoginPage(),
+                home: Dashboard(),
               );
             },
 

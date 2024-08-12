@@ -7,10 +7,16 @@ class ImageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      placeholder: (context, imageUrl)=>Center(child: CircularProgressIndicator(),),
-      errorWidget: (context, imageUrl, error)=>Center(child: Icon(Icons.error),),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8.0), // Optional: To give rounded corners
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        width: double.infinity,
+        height: double.infinity,
+        fit: BoxFit.cover,
+        placeholder: (context, imageUrl) => Center(child: CircularProgressIndicator()),
+        errorWidget: (context, imageUrl, error) => Center(child: Icon(Icons.error)),
+      ),
     );
   }
 }
