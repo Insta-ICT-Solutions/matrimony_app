@@ -1,7 +1,7 @@
-import 'package:bright_weddings/View/Dashboard/dashboard_mobile.dart';
-import 'package:bright_weddings/View/Dashboard/dashboard_tab.dart';
 import 'package:flutter/material.dart';
-import '../../Helper/reponsive.dart';
+import '../../Helper/responsive.dart';
+import 'dashboard_mobile.dart';
+import 'dashboard_web.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -9,9 +9,9 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Responsive(
-      tablet: DashboardTab(),
+      tablet: DashboardWeb(),
       mobile: DashboardMobile(),
-      desktop: DashboardTab(),
+      desktop: DashboardWeb(),
     );
   }
 }

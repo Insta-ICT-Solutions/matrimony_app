@@ -20,51 +20,54 @@ class NewProfile extends StatelessWidget {
           final user = userList[index];
           return Padding(
             padding: const EdgeInsets.all(5.0),
-            child: Container(
-              width: 23.w,
-              height: 18.h,
-              decoration: BoxDecoration(
-                  borderRadius:
-                  BorderRadius.all(Radius.circular(16))),
-              child: Stack(children: [
-                ImageCard(imageUrl: user['image_url']),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      bottom: 10, left: 10, right: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          user['full_name'],
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 1.t,
-                            fontWeight: FontWeight.bold,
+            child: InkWell(
+
+              child: Container(
+                width: 23.w,
+                height: 18.h,
+                decoration: BoxDecoration(
+                    borderRadius:
+                    BorderRadius.all(Radius.circular(16))),
+                child: Stack(children: [
+                  ImageCard(imageUrl: user['image_url']),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        bottom: 10, left: 10, right: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            user['full_name'],
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 1.t,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          user['address'] +
-                              '\t\t' +
-                              user['age'],
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 0.7.t,
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            user['address'] +
+                                '\t\t' +
+                                user['age'],
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 0.7.t,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                         ),
-                      ),
-                    ],
-                  ),
-                )
-              ]),
+                      ],
+                    ),
+                  )
+                ]),
+              ),
             ),
           );
         },

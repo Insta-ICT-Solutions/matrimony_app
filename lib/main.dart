@@ -1,5 +1,4 @@
-import 'package:bright_weddings/View/Dashboard/dashboard.dart';
-import 'package:bright_weddings/View/Login/login.dart';
+import 'package:bright_weddings/View/Pager/pager.dart';
 import 'package:bright_weddings/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -26,11 +25,12 @@ class MyApp extends StatelessWidget {
             builder: (BuildContext context2, Orientation orientation){
               SizeConfig.init(constraints, orientation);
               return GetMaterialApp(
+                title: "Bright Weddings",
                 theme: ThemeData(
                   colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF3D48A)),
                   primaryColor: Color(0xFFF3D48A),
                 ),
-                home: Dashboard(),
+                home: Pager(),
               );
             },
 

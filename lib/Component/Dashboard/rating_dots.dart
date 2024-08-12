@@ -12,6 +12,9 @@ class RatingDots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CircleAvatar(
           backgroundColor: color,
@@ -22,6 +25,7 @@ class RatingDots extends StatelessWidget {
           text,
           style: GoogleFonts.poppins(
             color: textColor,
+            fontSize: 1.0.t
           ),
         ),
       ],
