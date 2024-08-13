@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../Helper/colors.dart';
 
 class SuccessRateView extends StatelessWidget {
+
+  SuccessRateView({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(

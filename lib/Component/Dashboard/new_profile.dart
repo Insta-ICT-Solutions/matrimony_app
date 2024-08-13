@@ -6,10 +6,11 @@ import '../../Mock API/user_list.dart';
 import 'image_card.dart';
 
 class NewProfile extends StatelessWidget {
-  const NewProfile({super.key});
+  final BuildContext bodyContext;
+  const NewProfile({super.key, required this.bodyContext});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(bodyContext) {
     return Container(
       width: 150.w,
       height: 15.h,
