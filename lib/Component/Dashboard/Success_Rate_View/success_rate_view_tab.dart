@@ -2,17 +2,17 @@ import 'package:bright_weddings/Component/Dashboard/rating_dots.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../Helper/colors.dart';
+import '../../../Helper/colors.dart';
 
-class SuccessRateView extends StatelessWidget {
+class SuccessRateViewTab extends StatelessWidget {
+  SuccessRateViewTab({super.key});
 
-  SuccessRateView({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(1.5.h),
       width: 80.w,
-      height: 23.h, // Increased height to accommodate all elements
+      height: 40.0.h,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -49,14 +49,15 @@ class SuccessRateView extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 2.h),
+          SizedBox(height: 1.5.h),  // Adjusted the height to avoid overflow
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: EdgeInsets.all(2.h),
-                height: 15.h,
-                width: 15.h,
+                height: 14.h,  // Adjusted the height to avoid overflow
+                width: 30.w,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
@@ -80,7 +81,7 @@ class SuccessRateView extends StatelessWidget {
                     child: Text(
                       "90%",
                       style: TextStyle(
-                        fontSize: 3.t,
+                        fontSize: 2.8.t,  // Adjusted the font size to fit
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
@@ -88,42 +89,43 @@ class SuccessRateView extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 5.w),
-              Column(
-                children: [
-                  SizedBox(
-                    height: 2.5.h,
-                  ),
-                  Row(
-                    children: [
-                      RatingDots(
-                        color: ratingDot1,
-                        text: "12 Likes",
-                      ),
-                      SizedBox(width: 5.w),
-                      RatingDots(
-                        color: ratingDot2,
-                        text: "12 Likes",
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 2.h),
-                  Row(
-                    children: [
-                      RatingDots(
-                        color: ratingDot3,
-                        text: "12 Likes",
-                      ),
-                      SizedBox(width: 5.w),
-                      RatingDots(
-                        color: ratingDot4,
-                        text: "12 Likes",
-                      ),
-                    ],
-                  ),
-                ],
-              ),
             ],
+          ),
+          Expanded(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 2.h,  // Adjusted the height to avoid overflow
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RatingDots(
+                      color: ratingDot1,
+                      text: "12 Likes",
+                    ),
+                    RatingDots(
+                      color: ratingDot2,
+                      text: "12 Likes",
+                    ),
+                  ],
+                ),
+                SizedBox(height: 1.5.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RatingDots(
+                      color: ratingDot3,
+                      text: "12 Likes",
+                    ),
+                    RatingDots(
+                      color: ratingDot4,
+                      text: "12 Likes",
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

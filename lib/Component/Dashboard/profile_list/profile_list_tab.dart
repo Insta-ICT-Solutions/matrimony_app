@@ -3,12 +3,12 @@ import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Helper/colors.dart';
-import '../../Mock API/user_list.dart';
-import 'image_card.dart';
+import '../../../Helper/colors.dart';
+import '../../../Mock API/user_list.dart';
+import '../image_card.dart';
 
-class ProfileList extends StatelessWidget {
-  const ProfileList({super.key});
+class ProfileListTab extends StatelessWidget {
+  const ProfileListTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class ProfileList extends StatelessWidget {
           final user = userList[index];
           return Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Row(
+            child: Column(
               children: [
                 Container(
                   width: 20.w, // Adjusted width to make it more visible
@@ -55,7 +55,7 @@ class ProfileList extends StatelessWidget {
                           user['full_name'],
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 1.1.t,
+                              fontSize: 2.0.t,
                               color: textColor),
                         ),
                       ],
@@ -67,7 +67,7 @@ class ProfileList extends StatelessWidget {
                         Text(user['address'],
                             style: GoogleFonts.poppins(
                               color: textColor,
-                              fontSize: 1.t,
+                              fontSize: 1.5.t,
                             )),
                         SizedBox(
                           width: 3.w,
@@ -77,7 +77,7 @@ class ProfileList extends StatelessWidget {
                         Text(user['age'],
                             style: GoogleFonts.poppins(
                               color: textColor,
-                              fontSize: 1.t,
+                              fontSize: 1.5.t,
                             )),
                         SizedBox(
                           width: 3.w,
@@ -87,7 +87,7 @@ class ProfileList extends StatelessWidget {
                         Text(user['education'],
                             style: GoogleFonts.poppins(
                               color: textColor,
-                              fontSize: 1.t,
+                              fontSize: 1.5.t,
                             )),
                       ],
                     ),
@@ -101,7 +101,7 @@ class ProfileList extends StatelessWidget {
                         Text(user['demands'],
                             style: GoogleFonts.poppins(
                               color: textColor,
-                              fontSize: 1.t,
+                              fontSize: 1.5.t,
                             )),
                       ],
                     ),
@@ -111,8 +111,8 @@ class ProfileList extends StatelessWidget {
                         InkWell(
                           onTap: (){},
                           child: Container(
-                            height: 2.h,
-                            width: 20.w,
+                            height: 3.h,
+                            width: 15.w,
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -121,16 +121,16 @@ class ProfileList extends StatelessWidget {
                             child: Center(
                               child: Text('View Full Profile',style: GoogleFonts.poppins(
                                   color: Colors.black,
-                                  fontSize: 0.9.t
+                                  fontSize: 1.1.t
                               ),),
                             ),
                           ),
                         ),
-                        SizedBox(width: 20.0.h,),
+                        SizedBox(width: 20.0.w,),
                         InkWell(
                           onTap: (){},
                           child: Container(
-                            height: 2.h,
+                            height: 3.5.h,
                             width: 15.w,
                             decoration: BoxDecoration(
                                 color: greenColor,
@@ -139,7 +139,7 @@ class ProfileList extends StatelessWidget {
                             child: Center(
                               child: Text('Get matches',style: GoogleFonts.poppins(
                                   color: Colors.white,
-                                  fontSize: 0.9.t
+                                  fontSize: 1.1.t
                               ),),
                             ),
                           ),

@@ -1,4 +1,4 @@
-import 'package:bright_weddings/View/Pager/pager.dart';
+import 'package:bright_weddings/View/Dashboard/dashboard.dart';
 import 'package:bright_weddings/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                   colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF3D48A)),
                   primaryColor: Color(0xFFF3D48A),
                 ),
-                home: Pager(),
+                home: Dashboard(),
               );
             },
 

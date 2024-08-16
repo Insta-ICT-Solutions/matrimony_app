@@ -22,7 +22,6 @@ class NewProfile extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(5.0),
             child: InkWell(
-
               child: Container(
                 width: 23.w,
                 height: 18.h,
