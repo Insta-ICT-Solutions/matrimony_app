@@ -296,7 +296,7 @@ class Footer extends StatelessWidget {
         Positioned(
           top: -2.5.h,
           child: Container(
-            height: 5.0.h.clamp(50.0, 80.0),
+            height: 5.0.h.clamp(20.0, 80.0),
             padding: EdgeInsets.symmetric(horizontal: padding),
             alignment: Alignment.center,
             decoration: BoxDecoration(
@@ -304,7 +304,7 @@ class Footer extends StatelessWidget {
               borderRadius: BorderRadius.circular(6.0),
             ),
             child: Text(
-              "Free Support: +91 1234567890    |    Email: it.team.instaict@gmail.com",
+              "Free Support: +91 1234567890  |  Email: it.team.instaict@gmail.com",
               style: GoogleFonts.poppins(
                 fontSize: fontSize,
                 fontWeight: FontWeight.w300,
