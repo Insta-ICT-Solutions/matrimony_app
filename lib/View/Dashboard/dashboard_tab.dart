@@ -2,7 +2,6 @@ import 'package:bright_weddings/Component/AppBar/header.dart';
 import 'package:bright_weddings/Component/Dashboard/Recent_Success/recent_success_tab.dart';
 import 'package:bright_weddings/Component/Dashboard/profile_list/profile_list_tab.dart';
 import 'package:bright_weddings/Component/Dashboard/sidebar.dart';
-import 'package:bright_weddings/Component/footer.dart';
 import 'package:bright_weddings/Controller/screen_controller.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
