@@ -6,9 +6,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
-void main() {
-  runApp(ChatListWeb());
-}
 
 class ChatListWeb extends StatelessWidget {
   @override
