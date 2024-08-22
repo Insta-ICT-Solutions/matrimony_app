@@ -1,16 +1,9 @@
-import 'package:bright_weddings/Component/footer.dart';
-import 'package:bright_weddings/View/Dashboard/dashboard.dart';
-import 'package:bright_weddings/View/Login/login.dart';
-import 'package:bright_weddings/chatlists/chatlistmobile.dart';
-import 'package:bright_weddings/chatlists/chatlistweb.dart';
 import 'package:bright_weddings/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:bright_weddings/Helper/get_di.dart' as di;
 import 'package:bright_weddings/chatlists/editprofile.dart';
-
-
 import 'Helper/size_config.dart';
 
 
