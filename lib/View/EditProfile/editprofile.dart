@@ -1,14 +1,13 @@
 import 'package:bright_weddings/Component/EditProfileComponents/edit_profile_form.dart';
-import 'package:bright_weddings/Component/EditProfileComponents/bottom_sheet_widget.dart';
+import 'package:bright_weddings/Component/EditProfileComponents/bottom_sheet_widget.dart'; // Import the updated bottom sheet component
 import 'package:bright_weddings/Component/image_card.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import '../Component/AppBar/header.dart';
-import '../Component/footer.dart';
-import '../Controller/profile_controller.dart';
+import 'package:flutter/services.dart';
+import '../../Component/AppBar/header.dart';
+import '../../Component/footer.dart';
+import '../../Controller/profile_controller.dart';
 
 class ProfileEditPage extends StatelessWidget {
   final ProfileController controller = Get.find<ProfileController>();
@@ -39,7 +38,7 @@ class ProfileEditPage extends StatelessWidget {
                             width: 90.0.w,
                             child: ImageCard(
                               imageUrl:
-                                  'https://rn53themes.net/themes/matrimo/images/profiles/12.jpg',
+                              'https://rn53themes.net/themes/matrimo/images/profiles/12.jpg',
                               borderRadius: BorderRadius.zero,
                             ),
                           )
@@ -75,6 +74,7 @@ class ProfileEditPage extends StatelessWidget {
                               shape: RoundedRectangleBorder(),
                             ),
                           ),
+                          //SizedBox(width: 8.0.w),
                           ElevatedButton.icon(
                             onPressed: () {},
                             icon: Icon(Icons.share, color: Colors.white),
