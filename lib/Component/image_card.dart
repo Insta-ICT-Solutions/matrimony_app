@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 
 class ImageCard extends StatelessWidget {
   final String imageUrl;
-  const ImageCard({super.key, required this.imageUrl});
+  final BorderRadius? borderRadius;
+
+  const ImageCard({super.key, required this.imageUrl, this.borderRadius});
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(8.0), // Optional: To give rounded corners
+      borderRadius: borderRadius ?? BorderRadius.circular(8.0),
       child: CachedNetworkImage(
         imageUrl: imageUrl,
         width: double.infinity,
