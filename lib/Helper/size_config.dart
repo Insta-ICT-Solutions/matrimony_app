@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 
-class SizeConfig {
-  SizeConfig._();
+class SizeConfig {SizeConfig._();
 
   static double? screenHeight;
   static double? screenWidth;

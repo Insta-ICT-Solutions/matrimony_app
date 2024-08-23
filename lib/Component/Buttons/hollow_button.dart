@@ -6,9 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 class HollowButton extends StatelessWidget {
   final String title;
   final double height;
-  final double width;
+  final double? width;
   final VoidCallback onTap;
-  HollowButton({super.key, required this.title, required this.onTap, required this.height, required this.width});
+  HollowButton({super.key, required this.title, required this.onTap, required this.height, this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class HollowButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: height,
-        width: width,
+        width: width != null ? width : double.maxFinite,
         decoration: BoxDecoration(
           border: Border.all(
             color: darkBorderColor,
@@ -26,7 +26,7 @@ class HollowButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(7.0),
         ),
         child: Text(title,overflow: TextOverflow.ellipsis, style: GoogleFonts.poppins(
-          fontSize: 0.8.t,
+          fontSize: 1.3.t,
           color: darkBorderColor,
         ),),
       ),

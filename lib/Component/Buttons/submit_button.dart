@@ -6,7 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 class SubmitButton extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
-  const SubmitButton({super.key, required this.title, required this.onTap});
+  final double? width;
+  const SubmitButton({super.key, required this.title, required this.onTap, this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class SubmitButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: 3.0.h,
+        width: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.0),
           color: buttonColor,
