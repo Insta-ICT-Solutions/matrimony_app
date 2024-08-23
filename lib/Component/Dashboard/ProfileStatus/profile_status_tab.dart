@@ -1,17 +1,23 @@
 import 'package:bright_weddings/Component/Dashboard/image_card.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ProfileStatus extends StatelessWidget {
-  const ProfileStatus({super.key});
+import '../../../View/EditProfile/edit_profile.dart';
+
+class ProfileStatusTab extends StatelessWidget {
+  const ProfileStatusTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       padding: EdgeInsets.all(2.h),
-      height: 30.0.h,
-      width: 85.0.w,
+      width: screenWidth * 0.7,
+      height: screenHeight * 0.45,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -31,10 +37,12 @@ class ProfileStatus extends StatelessWidget {
           Positioned(
               bottom: 0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.to(() => EditProfile());
+                },
                 child: Container(
-                  height: 5.h,
-                  width: 77.w,
+                  width: screenWidth * 0.66,
+                  height: screenHeight * 0.09,
                   color: Colors.black,
                   child: Center(
                     child: Text(
@@ -42,7 +50,7 @@ class ProfileStatus extends StatelessWidget {
                       style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 1.2.t),
+                          fontSize: 2.0.t),
                     ),
                   ),
                 ),

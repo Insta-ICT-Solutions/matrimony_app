@@ -2,18 +2,19 @@ import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Mock API/user_list.dart';
-import 'image_card.dart';
+import '../../../Mock API/user_list.dart';
+import '../image_card.dart';
 
-class NewProfile extends StatelessWidget {
+class NewProfileTab extends StatelessWidget {
   final BuildContext bodyContext;
-  const NewProfile({super.key, required this.bodyContext});
+  const NewProfileTab({super.key, required this.bodyContext});
 
   @override
   Widget build(bodyContext) {
+
     return Container(
       width: 150.w,
-      height: 15.h,
+      height: 25.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: userList.length > 5 ? 5 : userList.length,
@@ -42,7 +43,7 @@ class NewProfile extends StatelessWidget {
                             user['full_name'],
                             style: GoogleFonts.poppins(
                               color: Colors.white,
-                              fontSize: 1.t,
+                              fontSize: 2.t,
                               fontWeight: FontWeight.bold,
                             ),
                             maxLines: 1,
@@ -57,7 +58,7 @@ class NewProfile extends StatelessWidget {
                                 user['age'],
                             style: GoogleFonts.poppins(
                               color: Colors.white,
-                              fontSize: 0.7.t,
+                              fontSize: 1.0.t,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,

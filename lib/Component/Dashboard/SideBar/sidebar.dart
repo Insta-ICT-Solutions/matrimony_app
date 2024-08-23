@@ -1,11 +1,9 @@
 import 'package:bright_weddings/Component/Dashboard/image_card.dart';
-import 'package:bright_weddings/Component/Dashboard/sidebar_item.dart';
+import 'package:bright_weddings/Component/Dashboard/SideBar/SideBaritems/sidebar_item.dart';
 import 'package:bright_weddings/Controller/screen_controller.dart';
-import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Sidebar extends StatelessWidget {
   Sidebar({super.key});
@@ -14,12 +12,16 @@ class Sidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 1.45.w,
       ),
-      height: 40.0.h,
-      width: 40.0.w,
+      height: screenHeight*0.8,
+      width: screenWidth*0.20,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
@@ -38,8 +40,8 @@ class Sidebar extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.all(20),
-            width: 35.w,
-            height: 12.0.h,
+            width: screenWidth*0.5,
+            height: screenHeight*0.3,
             child: ImageCard(imageUrl: 'https://rn53themes.net/themes/matrimo/images/profiles/12.jpg',)
           ),
           SizedBox(

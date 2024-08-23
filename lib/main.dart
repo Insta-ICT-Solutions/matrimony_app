@@ -1,4 +1,5 @@
 import 'package:bright_weddings/View/Dashboard/dashboard.dart';
+import 'package:bright_weddings/View/Login/login.dart';
 import 'package:bright_weddings/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

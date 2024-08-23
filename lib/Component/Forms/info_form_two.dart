@@ -5,6 +5,7 @@ import 'package:bright_weddings/Controller/new_registration_controller.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/path_constants.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:bright_weddings/View/Dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,10 +33,7 @@ class InfoFormTwo extends StatelessWidget {
             padding: EdgeInsets.all(3.h),
             width: 35.w,
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  gradient1Color,
-                  gradient2Color,
-                ], begin: Alignment.topRight, end: Alignment.bottomLeft),
+                color: Color(0xFFFFFAA0),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10.0),
                   bottomLeft: Radius.circular(10.0),
@@ -232,6 +230,7 @@ class InfoFormTwo extends StatelessWidget {
                       Container(
                           width: 24.0.w,
                           child: SubmitButton(title: "Save & next", onTap: (){
+                            Get.to(() => Dashboard());
 
                           })),
                     ],

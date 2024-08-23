@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../Helper/colors.dart';
 
-class SuccessRateViewTab extends StatelessWidget {
-  SuccessRateViewTab({super.key});
+class ProfileCompletionStatusTab extends StatelessWidget {
+  ProfileCompletionStatusTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +13,7 @@ class SuccessRateViewTab extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
+
       padding: EdgeInsets.all(1.5.h),
       width: screenWidth*0.7,
       height: screenHeight*0.45,

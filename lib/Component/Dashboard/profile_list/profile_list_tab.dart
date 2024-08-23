@@ -12,11 +12,14 @@ class ProfileListTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       clipBehavior: Clip.hardEdge,
       padding: EdgeInsets.all(8.w),
-      height: 50.h,
-      width: 133.0.w,
+      width: screenWidth*0.7,
+      height: screenHeight*0.9,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -35,17 +38,18 @@ class ProfileListTab extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 20.w, // Adjusted width to make it more visible
-                  height: 17.w, // Made height and width proportional
+                  width: screenWidth*0.15,
+                  height: screenHeight*0.15, // Made height and width proportional
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: ImageCard(
                       imageUrl: user['image_url']), // Corrected the usage
                 ),
-                SizedBox(width: 5.w),
+                SizedBox(height: 1.0.h,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -11,10 +11,13 @@ class RecentSuccessTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       padding: EdgeInsets.all(20),
-      height: 45.0.h,
-      width: 80.0.w,
+      width: screenWidth*0.7,
+      height: screenHeight*0.45,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -35,8 +38,8 @@ class RecentSuccessTab extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: 15.w, // Adjusted width to make it more visible
-                  height: 15.w, // Made height and width proportional
+                  width: screenWidth*0.2,
+                  height: screenHeight*0.2, // Made height and width proportional
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -50,15 +53,16 @@ class RecentSuccessTab extends StatelessWidget {
                       user['full_name'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 1.5.t,
+                          fontSize: 2.0.t,
                           color: textColor
                       ),
                     ),
+                    SizedBox(height: 1.0.h,),
                     Text(
                         user['address'],
                         style: GoogleFonts.poppins(
                           color: textColor,
-                          fontSize: 1.2.t,
+                          fontSize: 1.7.t,
                         )
                     ),
                   ],

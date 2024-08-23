@@ -34,10 +34,7 @@ class LoginForm extends StatelessWidget {
               padding: EdgeInsets.all(3.h),
               width: 35.w,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                    gradient1Color,
-                    gradient2Color,
-                  ], begin: Alignment.topRight, end: Alignment.bottomLeft),
+                  color: Color(0xFFFFFAA0),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10.0),
                     bottomLeft: Radius.circular(10.0),
