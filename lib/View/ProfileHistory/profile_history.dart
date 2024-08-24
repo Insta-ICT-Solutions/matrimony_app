@@ -1,4 +1,5 @@
 
+import 'package:bright_weddings/Component/EditProfileComponents/bottom_sheet_widget.dart';
 import 'package:bright_weddings/Component/ProfileHistoryComponents/profile_details.dart';
 import 'package:flutter/material.dart';
 import 'package:bright_weddings/Component/image_card.dart';
@@ -57,7 +58,20 @@ class ProfileHistory extends StatelessWidget {
                                   ),
                                   Expanded(
                                     child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        showModalBottomSheet(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return ShareProfileBottomSheet();
+                                          },
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(25.0),
+                                            ),
+                                          ),
+                                          backgroundColor: Colors.transparent,
+                                        );
+                                      },
                                       child: Text('SHARE PROFILE'),
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.orange,

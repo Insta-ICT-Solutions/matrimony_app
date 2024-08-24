@@ -11,7 +11,6 @@ import '../../Controller/profile_controller.dart';
 
 class ProfileEditPage extends StatelessWidget {
   final ProfileController controller = Get.find<ProfileController>();
-
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -53,7 +52,7 @@ class ProfileEditPage extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return BottomSheetWidget(
-                                    controller: ProfileController(),
+                                    controller: controller,
                                   );
                                 },
                                 shape: RoundedRectangleBorder(
@@ -74,9 +73,21 @@ class ProfileEditPage extends StatelessWidget {
                               shape: RoundedRectangleBorder(),
                             ),
                           ),
-                          //SizedBox(width: 8.0.w),
                           ElevatedButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return ShareProfileBottomSheet();
+                                },
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(25.0),
+                                  ),
+                                ),
+                                backgroundColor: Colors.transparent,
+                              );
+                            },
                             icon: Icon(Icons.share, color: Colors.white),
                             label: Text('Share Profile',
                                 style: TextStyle(color: Colors.white)),
