@@ -7,6 +7,7 @@ import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:bright_weddings/View/New%20Client%20Registration/new_client_registration.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -118,18 +119,49 @@ class LoginForm extends StatelessWidget {
                   SizedBox(
                     height: 0.5.h,
                   ),
-                  InputField(labelText: "Enter Phone Number", controller: controller.phoneController, keyboardType: TextInputType.phone),
+                  InputField(labelText: "Enter Phone Number", controller: controller.phoneController, keyboardType: TextInputType.phone, suffixIcon: IconButton(onPressed: () async{
+                    EasyLoading.show(
+                        status: 'Sending OTP...'
+                    );
+                    Future.delayed(Duration(seconds: 3)).then((_){
+                      EasyLoading.dismiss();
+                      controller.otpSent(true);
+                      showDialog(barrierDismissible: true, context: context, builder: (context){
+                        return AlertDialog(
+                          title: Text("Success!", textAlign: TextAlign.center,),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              CircleAvatar(
+                                radius: 8.w,
+                                backgroundColor: gradient2Color,
+                                child: Icon(Icons.check_rounded, color: textColor, size: 10.w,),
+                              ),
+                              SizedBox(
+                                height: 3.h,
+                              ),
+                              Text("OTP sent successfully!")
+                            ],
+                          ),
+                        );
+                      });
+                    });
+
+
+                  }, icon: Icon(Icons.send, color: textColor,),  splashColor: Colors.transparent,),),
                   SizedBox(
                     height: 1.5.h,
                   ),
-                  Text("OTP:", style: GoogleFonts.poppins(
+                  Obx(()=> controller.otpSent.value ? Text("OTP:", style: GoogleFonts.poppins(
                     fontSize: 0.9.t,
                     color: Colors.black,
-                  ),),
+                  ),) : Container()),
                   SizedBox(
                     height: 0.5.h,
                   ),
-                  InputField(labelText: "Enter OTP", controller: controller.otpController, keyboardType: TextInputType.phone),
+                  Obx(()=> controller.otpSent.value ? InputField(labelText: "Enter OTP", controller: controller.otpController, keyboardType: TextInputType.phone) : Container()),
                   SizedBox(
                     height: 1.5.h,
                   ),

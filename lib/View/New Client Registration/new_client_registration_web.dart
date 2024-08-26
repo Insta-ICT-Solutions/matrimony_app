@@ -20,40 +20,56 @@ class NewClientRegistrationWeb extends StatelessWidget {
         onBack: ()=>Get.back(),
       ),
       backgroundColor: backgroundColor,
-      body: Obx(() {
-        return ListView(
-          children: [
-            SizedBox(
-              height: 4.0.h,
+      body: Stack(
+        children:[
+          Obx(() {
+          return ListView(
+            children: [
+              SizedBox(
+                height: 4.0.h,
+              ),
+              AnimatedSwitcher(
+                duration: Duration(milliseconds: 500),
+                transitionBuilder: (Widget child, Animation<double> animation) {
+                  return SlideTransition(
+                    position: Tween<Offset>(
+                      begin: controller.currentFormIndex.value == 0
+                          ? Offset(1, 0)
+                          : Offset(-1, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: child,
+                  );
+                },
+                child: controller.currentFormIndex.value == 0
+                    ? InfoFormOne(onNext: () {
+                  controller.currentFormIndex.value = 1;
+                })
+                    : InfoFormTwo(onBack: () {
+                  controller.currentFormIndex.value = 0;
+                }),
+              ),
+              SizedBox(
+                height: 10.0.h,
+              ),
+              Footer(),
+            ],
+          );
+        }),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image(
+              image: AssetImage(
+                'assets/images/leaves.png',
+              ),
+              height: 17.h,
+              width: 28.w,
             ),
-            AnimatedSwitcher(
-              duration: Duration(milliseconds: 500),
-              transitionBuilder: (Widget child, Animation<double> animation) {
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: controller.currentFormIndex.value == 0
-                        ? Offset(1, 0)
-                        : Offset(-1, 0),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: child,
-                );
-              },
-              child: controller.currentFormIndex.value == 0
-                  ? InfoFormOne(onNext: () {
-                controller.currentFormIndex.value = 1;
-              })
-                  : InfoFormTwo(onBack: () {
-                controller.currentFormIndex.value = 0;
-              }),
-            ),
-            SizedBox(
-              height: 7.0.h,
-            ),
-            Footer(),
-          ],
-        );
-      }),
+          ),
+        ],
+
+      ),
     );
   }
 }

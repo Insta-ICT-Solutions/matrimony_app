@@ -20,6 +20,12 @@ class DashboardWeb extends StatelessWidget {
   DashboardWeb({super.key});
 
   final ScreenController controller = Get.find<ScreenController>();
+  final ScrollController _scrollController = ScrollController();
+
+  final GlobalKey _newProfileKey = GlobalKey();
+  final GlobalKey _successRateKey = GlobalKey();
+  final GlobalKey _profileListKey = GlobalKey();
+  final GlobalKey _profileStatusKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -28,30 +34,34 @@ class DashboardWeb extends StatelessWidget {
       appBar: Header(),
       body: Stack(
         children: [
-          Builder(builder: (bodyContext) {
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(7.0.h),
-                    child: Expanded(
-                      child: SingleChildScrollView(
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding:  EdgeInsets.all(14.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Sidebar(
+                        onSidebarItemSelected: (index) {
+                          _scrollToSection(index);
+                        },
+                      ),
+                     SizedBox(width: 5.0.w,)       ,
+                      Expanded(
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Sidebar(),
-                                  SizedBox(width: 5.w),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Wrap the section with a GlobalKey
+                                Container(
+                                  key: _newProfileKey,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'New Profile',
@@ -60,60 +70,68 @@ class DashboardWeb extends StatelessWidget {
                                             fontSize: 1.5.t,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      SizedBox(height: 3.0.h),
+                                      SizedBox(height: 2.0.h),
                                       NewProfile(
-                                        bodyContext: bodyContext,
+                                        bodyContext: context,
                                       ),
-                                      SizedBox(height: 3.0.h),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'Success Rate',
-                                            style: GoogleFonts.playfairDisplay(
-                                                color: textColor,
-                                                fontSize: 1.5.t,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          SizedBox(
-                                            width: 66.w,
-                                          ),
-                                          Text(
-                                            'Recent Success',
-                                            style: GoogleFonts.playfairDisplay(
-                                                color: textColor,
-                                                fontSize: 1.5.t,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: 3.0.h),
-                                      SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(height: 3.0.h),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Success Rate',
+                                      style: GoogleFonts.playfairDisplay(
+                                          color: textColor,
+                                          fontSize: 1.5.t,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      width: 66.w,
+                                    ),
+                                    Text(
+                                      'Recent Success',
+                                      style: GoogleFonts.playfairDisplay(
+                                          color: textColor,
+                                          fontSize: 1.5.t,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 3.0.h),
+                                Container(
+                                  key: _successRateKey,
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
                                           mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
                                           children: [
-                                            Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                SuccessRateView(),
-                                                SizedBox(
-                                                  height: 1.h,
-                                                ),
-                                                SuccessGraph()
-                                              ],
-                                            ),
+                                            SuccessRateView(),
                                             SizedBox(
-                                              width: 5.0.w,
+                                              height: 1.h,
                                             ),
-                                            RecentSuccess(userList: userList)
+                                            SuccessGraph()
                                           ],
                                         ),
-                                      ),
-                                      SizedBox(height: 3.0.h),
+                                        SizedBox(
+                                          width: 5.0.w,
+                                        ),
+                                        RecentSuccess(userList: userList)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 3.0.h),
+                                Container(
+                                  key: _profileListKey,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
                                       Text(
                                         'Profile List',
                                         style: GoogleFonts.playfairDisplay(
@@ -127,13 +145,19 @@ class DashboardWeb extends StatelessWidget {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            SizedBox(height: 3.0.h),
                                             ProfileList(),
-                                            SizedBox(height: 3.0.h),
                                           ],
                                         ),
                                       ),
-                                      SizedBox(height: 3.0.h),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(height: 3.0.h),
+                                Container(
+                                  key: _profileStatusKey,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
                                       Text(
                                         'Profile Status',
                                         style: GoogleFonts.playfairDisplay(
@@ -152,21 +176,21 @@ class DashboardWeb extends StatelessWidget {
                                         ],
                                       ),
                                     ],
-                                  )
-                                ],
-                              ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                  SizedBox(height: 10.0.h),
-                  Footer()
-                ],
-              ),
-            );
-          }),
+                ),
+                SizedBox(height: 10.0.h),
+                Footer()
+              ],
+            ),
+          ),
           Positioned(
             top: 0,
             left: 0,
@@ -178,15 +202,27 @@ class DashboardWeb extends StatelessWidget {
               width: 28.w,
             ),
           ),
-          Positioned(
-              bottom: 0,
-              right: 0,
-              child: Image(
-                image: AssetImage('assets/images/flower1.png'),
-                width: 28.w,
-              ))
         ],
       ),
     );
+  }
+
+  void _scrollToSection(int index) {
+    // Define the keys for each section
+    Map<int, GlobalKey> sectionKeys = {
+      0: _newProfileKey, // New Profile
+      1: _successRateKey, // Success Rate and Recent Success
+      2: _profileListKey, // Profile List
+      3: _profileStatusKey, // Profile Status
+    };
+
+    GlobalKey? key = sectionKeys[index];
+    if (key != null) {
+      Scrollable.ensureVisible(
+        key.currentContext!,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 }

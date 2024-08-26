@@ -13,16 +13,31 @@ class LoginWeb extends StatelessWidget {
     return Scaffold(
       appBar: Header(),
       backgroundColor: backgroundColor,
-      body: ListView(
+      body: Stack(
         children: [
-          SizedBox(
-            height: 5.0.h,
+          ListView(
+            children: [
+              SizedBox(
+                height: 5.0.h,
+              ),
+              Center(child: LoginForm(),),
+              SizedBox(
+                height: 10.0.h,
+              ),
+              Footer(),
+            ],
           ),
-          Center(child: LoginForm(),),
-          SizedBox(
-            height: 7.0.h,
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image(
+              image: AssetImage(
+                'assets/images/leaves.png',
+              ),
+              height: 17.h,
+              width: 28.w,
+            ),
           ),
-          Footer(),
         ],
       ),
     );

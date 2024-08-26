@@ -1,6 +1,9 @@
 import 'package:bright_weddings/Component/Dashboard/circular_bullet.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:bright_weddings/View/ProfileDetails/profile_details.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../Helper/colors.dart';
@@ -109,7 +112,9 @@ class ProfileList extends StatelessWidget {
                     Row(
                       children: [
                         InkWell(
-                          onTap: (){},
+                          onTap: (){
+                            Get.to(() => ProfileDetails(user: user,));
+                          },
                           child: Container(
                             height: 2.h,
                             width: 20.w,
