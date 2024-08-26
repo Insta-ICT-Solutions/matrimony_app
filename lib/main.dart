@@ -2,6 +2,7 @@ import 'package:bright_weddings/Component/footer.dart';
 import 'package:bright_weddings/View/Dashboard/dashboard.dart';
 import 'package:bright_weddings/View/EditProfile/editprofile.dart';
 import 'package:bright_weddings/View/Login/login.dart';
+import 'package:bright_weddings/View/ProfileSetting/profilesetting.dart';
 import 'package:bright_weddings/chatlists/chatlistmobile.dart';
 import 'package:bright_weddings/chatlists/chatlistweb.dart';
 import 'package:bright_weddings/View/ProfileHistory/profile_history.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
                   colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF3D48A)),
                   primaryColor: Color(0xFFF3D48A),
                 ),
-                home: ProfileHistory(),
+                home: ProfileSettingsPage(),
               );
             },
 
