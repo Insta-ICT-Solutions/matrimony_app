@@ -6,6 +6,8 @@ class ProfileController extends GetxController {
   var selectedFile = Rxn<PlatformFile>();
   var selectedFileName = "Update from Device".obs;
   var selectedFileUnicode = ''.obs;
+  var isProfileVisible = true.obs;
+  var isStatusChangeable = true.obs;
 
   final ImagePicker _picker = ImagePicker();
 

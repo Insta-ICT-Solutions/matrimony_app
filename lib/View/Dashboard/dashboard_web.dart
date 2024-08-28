@@ -1,9 +1,12 @@
 import 'package:bright_weddings/Component/AppBar/header.dart';
 import 'package:bright_weddings/Component/Dashboard/SideBar/sidebar.dart';
 import 'package:bright_weddings/Component/footer.dart';
+import 'package:bright_weddings/Component/profile_settings_card.dart';
+import 'package:bright_weddings/Component/search_bar.dart';
 import 'package:bright_weddings/Controller/screen_controller.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:bright_weddings/View/ProfileSettings/profile_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,6 +28,7 @@ class DashboardWeb extends StatelessWidget {
   final GlobalKey _newProfileKey = GlobalKey();
   final GlobalKey _successRateKey = GlobalKey();
   final GlobalKey _profileListKey = GlobalKey();
+  final GlobalKey _profileSettingsKey = GlobalKey();
   final GlobalKey _profileStatusKey = GlobalKey();
 
   @override
@@ -54,131 +58,144 @@ class DashboardWeb extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Wrap the section with a GlobalKey
-                                Container(
-                                  key: _newProfileKey,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'New Profile',
-                                        style: GoogleFonts.playfairDisplay(
-                                            color: textColor,
-                                            fontSize: 1.5.t,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(height: 2.0.h),
-                                      NewProfile(
-                                        bodyContext: context,
-                                      ),
-                                    ],
+                            Container(
+                              key: _newProfileKey,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'New Profile',
+                                    style: GoogleFonts.playfairDisplay(
+                                        color: textColor,
+                                        fontSize: 1.5.t,
+                                        fontWeight: FontWeight.bold),
                                   ),
+                                  SizedBox(height: 2.0.h),
+                                  NewProfile(
+                                    bodyContext: context,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 3.0.h),
+                            Row(
+                              children: [
+                                Text(
+                                  'Success Rate',
+                                  style: GoogleFonts.playfairDisplay(
+                                      color: textColor,
+                                      fontSize: 1.5.t,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                SizedBox(height: 3.0.h),
-                                Row(
+                                SizedBox(
+                                  width: 66.w,
+                                ),
+                                Text(
+                                  'Recent Success',
+                                  style: GoogleFonts.playfairDisplay(
+                                      color: textColor,
+                                      fontSize: 1.5.t,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 3.0.h),
+                            Container(
+                              key: _successRateKey,
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      'Success Rate',
-                                      style: GoogleFonts.playfairDisplay(
-                                          color: textColor,
-                                          fontSize: 1.5.t,
-                                          fontWeight: FontWeight.bold),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SuccessRateView(),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        SuccessGraph()
+                                      ],
                                     ),
                                     SizedBox(
-                                      width: 66.w,
+                                      width: 5.0.w,
                                     ),
-                                    Text(
-                                      'Recent Success',
-                                      style: GoogleFonts.playfairDisplay(
-                                          color: textColor,
-                                          fontSize: 1.5.t,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                    RecentSuccess(userList: userList)
                                   ],
                                 ),
-                                SizedBox(height: 3.0.h),
-                                Container(
-                                  key: _successRateKey,
-                                  child: SingleChildScrollView(
+                              ),
+                            ),
+                            SizedBox(height: 3.0.h),
+                            Container(
+                              key: _profileListKey,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Profile List',
+                                    style: GoogleFonts.playfairDisplay(
+                                        color: textColor,
+                                        fontSize: 1.5.t,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(height: 3.0.h),
+                                  SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            SuccessRateView(),
-                                            SizedBox(
-                                              height: 1.h,
-                                            ),
-                                            SuccessGraph()
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          width: 5.0.w,
-                                        ),
-                                        RecentSuccess(userList: userList)
+                                        ProfileList(),
                                       ],
                                     ),
                                   ),
-                                ),
-                                SizedBox(height: 3.0.h),
-                                Container(
-                                  key: _profileListKey,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 3.0.h),
+                            Container(
+                              key: _profileStatusKey,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Profile Status',
+                                    style: GoogleFonts.playfairDisplay(
+                                        color: textColor,
+                                        fontSize: 1.5.t,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(height: 3.0.h),
+                                  Row(
                                     children: [
-                                      Text(
-                                        'Profile List',
-                                        style: GoogleFonts.playfairDisplay(
-                                            color: textColor,
-                                            fontSize: 1.5.t,
-                                            fontWeight: FontWeight.bold),
+                                      ProfileStatus(),
+                                      SizedBox(
+                                        width: 5.0.w,
                                       ),
-                                      SizedBox(height: 3.0.h),
-                                      SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            ProfileList(),
-                                          ],
-                                        ),
-                                      ),
+                                      ProfileCompletionStatus()
                                     ],
                                   ),
-                                ),
-                                SizedBox(height: 3.0.h),
-                                Container(
-                                  key: _profileStatusKey,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Profile Status',
-                                        style: GoogleFonts.playfairDisplay(
-                                            color: textColor,
-                                            fontSize: 1.5.t,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(height: 3.0.h),
-                                      Row(
-                                        children: [
-                                          ProfileStatus(),
-                                          SizedBox(
-                                            width: 5.0.w,
-                                          ),
-                                          ProfileCompletionStatus()
-                                        ],
-                                      ),
-                                    ],
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 3.0.h),
+                            Container(
+                              key: _profileSettingsKey,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Profile Settings',
+                                    style: GoogleFonts.playfairDisplay(
+                                        color: textColor,
+                                        fontSize: 1.5.t,
+                                        fontWeight: FontWeight.bold),
                                   ),
-                                ),
-                              ],
+                                  SizedBox(height: 2.0.h),
+                                  ProfileCard()
+
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -213,6 +230,7 @@ class DashboardWeb extends StatelessWidget {
       0: _newProfileKey, // New Profile
       1: _successRateKey, // Success Rate and Recent Success
       2: _profileListKey, // Profile List
+      3: _profileSettingsKey, // Profile List
       3: _profileStatusKey, // Profile Status
     };
 

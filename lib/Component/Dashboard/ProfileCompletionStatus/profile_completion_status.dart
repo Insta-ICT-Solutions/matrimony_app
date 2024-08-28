@@ -91,6 +91,7 @@ class ProfileCompletionStatus extends StatelessWidget {
           SizedBox(
             height: 2.5.h,
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

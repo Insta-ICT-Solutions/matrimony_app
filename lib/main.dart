@@ -1,13 +1,11 @@
 import 'package:bright_weddings/View/Dashboard/dashboard.dart';
-import 'package:bright_weddings/View/Login/login.dart';
-import 'package:bright_weddings/View/ProfileDetails/profile_details.dart';
+import 'package:bright_weddings/View/ProfileSettings/profile_settings.dart';
 import 'package:bright_weddings/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:bright_weddings/Helper/get_di.dart' as di;
-
 import 'Helper/size_config.dart';
 
 void main() async {
@@ -33,7 +31,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF3D48A)),
                 primaryColor: Color(0xFFF3D48A),
               ),
-              home: LoginPage(),
+              home: Dashboard(),
               builder: EasyLoading.init());
         },
       );
