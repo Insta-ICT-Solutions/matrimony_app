@@ -17,7 +17,7 @@ class ProfileHistory extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.all(4.0.w),
+                padding: EdgeInsets.all(10.0.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
