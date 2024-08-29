@@ -1,7 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../Controller/profile_controller.dart'; // Adjust path if necessary
+import '../../Controller/profile_controller.dart'; 
 
 class BottomSheetWidget extends StatelessWidget {
   final ProfileController controller;
@@ -192,41 +192,4 @@ class ShareProfileBottomSheet extends StatelessWidget {
   }
 }
 
-class ProfilePage extends StatelessWidget {
-  final ProfileController controller = Get.put(ProfileController());
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => BottomSheetWidget(controller: controller),
-                );
-              },
-              child: Text('Update Profile Picture'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => ShareProfileBottomSheet(),
-                );
-              },
-              child: Text('Share Profile'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

@@ -10,8 +10,9 @@ class SidebarItem extends StatelessWidget {
   final bool isSelected;
   final String? leadingPath;
   final VoidCallback onTap;
+
   
-  const SidebarItem({super.key, required this.title, required this.isSelected, this.leadingPath, required this.onTap});
+  const SidebarItem({super.key, required this.title, required this.isSelected, this.leadingPath, required this.onTap });
 
   @override
   Widget build(BuildContext context) {

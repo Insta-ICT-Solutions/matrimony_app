@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
                   colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF3D48A)),
                   primaryColor: Color(0xFFF3D48A),
                 ),
-                home: ProfileSettingsPage(),
+                home:  ProfileEditPage(),
               );
             },
 

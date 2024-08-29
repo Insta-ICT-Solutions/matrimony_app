@@ -21,15 +21,15 @@ class Sidebar extends StatelessWidget {
       height: 40.0.h,
       width: 40.0.w,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.25),
-            offset: Offset(0, 4),
-            blurRadius: 4.0,
-          ),
-        ]
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.25),
+              offset: Offset(0, 4),
+              blurRadius: 4.0,
+            ),
+          ]
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -37,10 +37,10 @@ class Sidebar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            margin: EdgeInsets.all(20),
-            width: 35.w,
-            height: 12.0.h,
-            child: ImageCard(imageUrl: 'https://rn53themes.net/themes/matrimo/images/profiles/12.jpg',)
+              margin: EdgeInsets.all(20),
+              width: 35.w,
+              height: 12.0.h,
+              child: ImageCard(imageUrl: 'https://rn53themes.net/themes/matrimo/images/profiles/12.jpg',)
           ),
           SizedBox(
             height: 1.5.h,

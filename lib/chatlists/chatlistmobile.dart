@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     } else if (title == 'User List') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()), // Navigation to the same user list ChatListWeb file
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     }
     // Add navigation logic for other menu items if needed
@@ -37,8 +37,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Header(), // Use the Header widget here
-        toolbarHeight: 100, // Adjust height as needed
+        title: Header(),
+        toolbarHeight: 100,
       ),
       drawer: Sidebar(
         selectedMenuItem: _selectedMenuItem,
