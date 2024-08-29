@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 import 'package:bright_weddings/Helper/get_di.dart' as di;
 
 
+import 'ChatLists/Chatlist_web.dart';
 
 import 'Helper/size_config.dart';
 
@@ -39,7 +40,11 @@ class MyApp extends StatelessWidget {
                   colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF3D48A)),
                   primaryColor: Color(0xFFF3D48A),
                 ),
+
                 home:  ProfileEditPage(),
+
+
+
               );
             },
 
