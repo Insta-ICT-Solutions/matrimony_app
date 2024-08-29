@@ -11,7 +11,11 @@ class LoginWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Header(),
+      appBar: Header(
+        showDashboard: false,
+        showLogin: false,
+        showRegistration: false,
+      ),
       backgroundColor: backgroundColor,
       body: Stack(
         children: [

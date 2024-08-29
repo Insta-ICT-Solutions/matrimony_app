@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import '../../../Component/AppBar/header.dart';
 import 'package:bright_weddings/Component/search_bar.dart';
-import '../../Component/profile_settings_card.dart';
+import '../../../Component/profile_settings_card.dart';
 
 class ProfileSettingsPage extends StatelessWidget {
   @override

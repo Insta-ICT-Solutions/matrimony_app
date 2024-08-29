@@ -2,11 +2,9 @@ import 'package:bright_weddings/Component/AppBar/header.dart';
 import 'package:bright_weddings/Component/Dashboard/SideBar/sidebar.dart';
 import 'package:bright_weddings/Component/footer.dart';
 import 'package:bright_weddings/Component/profile_settings_card.dart';
-import 'package:bright_weddings/Component/search_bar.dart';
 import 'package:bright_weddings/Controller/screen_controller.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
-import 'package:bright_weddings/View/ProfileSettings/profile_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +16,7 @@ import '../../Component/Dashboard/Recent_Success/recent_success.dart';
 import '../../Component/Dashboard/SuccessGraph/success_graph.dart';
 import '../../Component/Dashboard/Success_Rate_View/success_rate_view.dart';
 import '../../Mock API/user_list.dart';
+import '../Profile/profiles.dart';
 
 class DashboardWeb extends StatelessWidget {
   DashboardWeb({super.key});
@@ -132,12 +131,15 @@ class DashboardWeb extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'Profile List',
-                                    style: GoogleFonts.playfairDisplay(
-                                        color: textColor,
-                                        fontSize: 1.5.t,
-                                        fontWeight: FontWeight.bold),
+                                  TextButton(
+                                    onPressed:(){
+                                      Get.to(() => Profiles());
+                                    },
+                                    child: Text('Profile List',
+                                     style: GoogleFonts.playfairDisplay(
+                                         color: textColor,
+                                         fontSize: 1.5.t,
+                                         fontWeight: FontWeight.bold),),
                                   ),
                                   SizedBox(height: 3.0.h),
                                   SingleChildScrollView(
@@ -145,7 +147,23 @@ class DashboardWeb extends StatelessWidget {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        ProfileList(),
+                                        Container(
+                                            clipBehavior: Clip.hardEdge,
+                                            padding: EdgeInsets.all(8.w),
+                                            height: 50.h,
+                                            width: 133.0.w,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.circular(10),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Colors.black.withOpacity(0.25),
+                                                  offset: Offset(0, 4),
+                                                  blurRadius: 4.0,
+                                                ),
+                                              ],
+                                            ),
+                                            child: ProfileList()),
                                       ],
                                     ),
                                   ),
@@ -193,7 +211,6 @@ class DashboardWeb extends StatelessWidget {
                                   ),
                                   SizedBox(height: 2.0.h),
                                   ProfileCard()
-
                                 ],
                               ),
                             ),
@@ -225,13 +242,12 @@ class DashboardWeb extends StatelessWidget {
   }
 
   void _scrollToSection(int index) {
-    // Define the keys for each section
     Map<int, GlobalKey> sectionKeys = {
-      0: _newProfileKey, // New Profile
-      1: _successRateKey, // Success Rate and Recent Success
-      2: _profileListKey, // Profile List
-      3: _profileSettingsKey, // Profile List
-      3: _profileStatusKey, // Profile Status
+      0: _newProfileKey,
+      1: _successRateKey,
+      2: _profileListKey,
+      3: _profileSettingsKey,
+      3: _profileStatusKey,
     };
 
     GlobalKey? key = sectionKeys[index];

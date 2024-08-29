@@ -14,7 +14,6 @@ class NewProfile extends StatefulWidget {
 }
 
 class _NewProfileState extends State<NewProfile> with TickerProviderStateMixin {
-  // Store hover state and animations for each user item
   Map<int, bool> _hovering = {};
   Map<int, AnimationController> _controllers = {};
   Map<int, Animation<Offset>> _animations = {};

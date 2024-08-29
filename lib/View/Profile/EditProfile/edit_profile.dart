@@ -1,14 +1,16 @@
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../Component/AppBar/header.dart';
-import '../../Component/Dashboard/image_card.dart';
-import '../../Component/EditProfileComponent/bottom_sheet_widget.dart';
-import '../../Component/EditProfileComponent/edit_profile_form.dart';
-import '../../Component/footer.dart';
-import '../../Controller/profile_controller.dart';
+
+import '../../../Component/AppBar/header.dart';
+import '../../../Component/Dashboard/image_card.dart';
+import '../../../Component/EditProfileComponent/bottom_sheet_widget.dart';
+import '../../../Component/EditProfileComponent/edit_profile_form.dart';
+import '../../../Component/footer.dart';
+import '../../../Controller/profile_controller.dart';
 
 class EditProfile extends StatelessWidget {
+
   final ProfileController controller = Get.find<ProfileController>();
 
   final _formKey = GlobalKey<FormState>();
@@ -52,7 +54,6 @@ class EditProfile extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return BottomSheetWidget(
-                                    controller: ProfileController(),
                                   );
                                 },
                                 shape: RoundedRectangleBorder(
@@ -74,7 +75,21 @@ class EditProfile extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return ShareProfileBottomSheet(
+                                  );
+                                },
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(25.0),
+                                  ),
+                                ),
+                                backgroundColor: Colors.transparent,
+                              );
+                            },
                             icon: Icon(Icons.share, color: Colors.white),
                             label: Text('Share Profile',
                                 style: TextStyle(color: Colors.white)),

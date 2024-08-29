@@ -2,7 +2,6 @@ import 'package:bright_weddings/Component/Dashboard/rating_dots.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../Helper/colors.dart';
 
 class ProfileCompletionStatus extends StatelessWidget {

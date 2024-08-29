@@ -1,15 +1,14 @@
-import 'package:bright_weddings/Component/contact_info_file.dart';
-import 'package:bright_weddings/Component/info_tile.dart';
-import 'package:bright_weddings/Component/personal_info.dart';
+import 'package:bright_weddings/Component/ProfileDetailsComponent/contact_info_file.dart';
+import 'package:bright_weddings/Component/ProfileDetailsComponent/info_tile.dart';
+import 'package:bright_weddings/Component/ProfileDetailsComponent/personal_info.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfileDetailsComponent extends StatelessWidget {
-  final Map<String, dynamic> user; // Add a user parameter
+  final Map<String, dynamic> user;
 
-  // Constructor to accept the user data
   ProfileDetailsComponent({required this.user});
 
   @override
@@ -21,7 +20,7 @@ class ProfileDetailsComponent extends StatelessWidget {
       children: [
         SizedBox(height: 3.0.h,),
         Text(
-          user['full_name'] ?? 'No Name Provided', // Fetch the name dynamically
+          user['full_name'] ?? 'No Name Provided',
           style: GoogleFonts.playfairDisplay(
             fontSize: 2.5.t,
             color: textColor,
@@ -29,30 +28,52 @@ class ProfileDetailsComponent extends StatelessWidget {
           ),
         ),
         SizedBox(height: 1.0.h),
-        InkWell(
-          onTap: () {
-            // Add profile history logic here
-          },
-          child: Container(
-            height: 2.h,
-            width: 23.w,
-            color: Color(0xFF5DC647),
-            child: Center(
-              child: Text(
-                'Profile History',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 1.0.t,
+        Row(
+          children: [
+            InkWell(
+              onTap: () {
+              },
+              child: Container(
+                height: 2.h,
+                width: 23.w,
+                color: Color(0xFF5DC647),
+                child: Center(
+                  child: Text(
+                    'Profile History',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 1.0.t,
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
+            SizedBox(width: 3.w,),
+            InkWell(
+              onTap: () {
+              },
+              child: Container(
+                height: 2.h,
+                width: 23.w,
+                color: Color(0xFF5DC647),
+                child: Center(
+                  child: Text(
+                    'Edit Profile',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 1.0.t,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 2.0.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
-
           children: [
             InfoTile(
               label: 'City',

@@ -40,7 +40,6 @@ class NewRegistrationController extends GetxController {
   ];
 
 
-
   void showPopUp(BuildContext context){
     showPopover(
       direction: PopoverDirection.right,

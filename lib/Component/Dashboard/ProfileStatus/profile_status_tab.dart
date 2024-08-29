@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../View/EditProfile/edit_profile.dart';
+import '../../../View/Profile/EditProfile/edit_profile.dart';
 
 class ProfileStatusTab extends StatelessWidget {
   const ProfileStatusTab({super.key});

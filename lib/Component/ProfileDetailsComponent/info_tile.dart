@@ -1,10 +1,15 @@
 import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:flutter/material.dart';
 
-import '../Helper/colors.dart';
+import '../../Helper/colors.dart';
 
 class InfoTile extends StatelessWidget {
-  const InfoTile({super.key, required this.label, required this.value, required this.icon, required this.iconColor});
+  const InfoTile(
+      {super.key,
+      required this.label,
+      required this.value,
+      required this.icon,
+      required this.iconColor});
 
   final String label;
   final String value;
@@ -36,12 +41,12 @@ class InfoTile extends StatelessWidget {
           Expanded(
             child: Text(
               value,
-              overflow: TextOverflow.visible,textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 1.3.t,
-                fontWeight: FontWeight.bold,
-                color: textColor
-              ),
+                  fontSize: 1.3.t,
+                  fontWeight: FontWeight.bold,
+                  color: textColor),
             ),
           ),
         ],

@@ -26,7 +26,7 @@ class HollowButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(7.0),
         ),
         child: Text(title,overflow: TextOverflow.ellipsis, style: GoogleFonts.poppins(
-          fontSize: 0.8.t,
+          fontSize: 1.1.t,
           color: darkBorderColor,
         ),),
       ),
