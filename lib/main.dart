@@ -1,10 +1,12 @@
 import 'package:bright_weddings/View/EditProfile/editprofile.dart';
+import 'package:bright_weddings/View/ProfileHistory/profile_history.dart';
 import 'package:bright_weddings/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:bright_weddings/Helper/get_di.dart' as di;
 import 'Helper/size_config.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFF3D48A)),
               primaryColor: Color(0xFFF3D48A),
             ),
-            home: ProfileEditPage(),
+            home: ProfileHistory(),
           );
         },
       );

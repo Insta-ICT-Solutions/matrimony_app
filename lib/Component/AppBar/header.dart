@@ -1,12 +1,28 @@
+
 import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:bright_weddings/View/Login/login.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../Helper/colors.dart';
+import '../../View/Dashboard/dashboard.dart';
+import '../../View/New Client Registration/new_client_registration.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onNext;
   final VoidCallback? onBack;
-  Header({Key? key, this.onNext, this.onBack}) : super(key: key);
+  final bool? showDashboard;
+  final bool? showLogin;
+  final bool? showRegistration;
+  Header(
+      {Key? key,
+        this.onNext,
+        this.onBack,
+        this.showDashboard,
+        this.showLogin,
+        this.showRegistration})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +181,31 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  width: 100.0.w,
+                  width: 90.0.w,
+                ),
+                showLogin == false
+                    ? Container()
+                    : TextButton(
+                    onPressed: () {
+                      Get.offAll(() => LoginPage());
+                    },
+                    child: Text('Logout')),
+                showRegistration == false
+                    ? Container()
+                    : TextButton(
+                    onPressed: () {
+                      Get.to(() => NewClientRegistration());
+                    },
+                    child: Text('Register')),
+                showDashboard == false
+                    ? Container()
+                    : TextButton(
+                    onPressed: () {
+                      Get.to(() => Dashboard());
+                    },
+                    child: Text('Dashboard')),
+                SizedBox(
+                  width: 10.0.w,
                 ),
                 CircleAvatar(
                   radius: 1.4.h,
