@@ -13,7 +13,6 @@ class ProfileDetailsComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("User is $user");
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,

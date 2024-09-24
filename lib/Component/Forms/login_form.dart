@@ -119,7 +119,8 @@ class LoginForm extends StatelessWidget {
                   SizedBox(
                     height: 0.5.h,
                   ),
-                  InputField(labelText: "Enter Phone Number", controller: controller.phoneController, keyboardType: TextInputType.phone, suffixIcon: IconButton(onPressed: () async{
+                  InputField(labelText: "Enter Phone Number", controller: controller.phoneController,
+                    keyboardType: TextInputType.phone, suffixIcon: IconButton(onPressed: () async{
                     EasyLoading.show(
                         status: 'Sending OTP...'
                     );

@@ -31,22 +31,29 @@ class InfoTile extends StatelessWidget {
         children: [
           Icon(icon, size: 4.0.w, color: iconColor),
           SizedBox(height: 1.0.h),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 1.0.t,
-              color: textColor,
+          FittedBox(
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 1.0.t,
+                color: textColor,
+              ),
             ),
           ),
+          SizedBox(height: 0.5.h),
           Expanded(
-            child: Text(
-              value,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-              style: TextStyle(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                value,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: TextStyle(
                   fontSize: 1.3.t,
                   fontWeight: FontWeight.bold,
-                  color: textColor),
+                  color: textColor,
+                ),
+              ),
             ),
           ),
         ],

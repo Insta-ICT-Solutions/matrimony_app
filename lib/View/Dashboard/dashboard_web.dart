@@ -5,6 +5,7 @@ import 'package:bright_weddings/Component/profile_settings_card.dart';
 import 'package:bright_weddings/Controller/screen_controller.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:bright_weddings/View/Profile/ProfileSettings/profile_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -202,15 +203,18 @@ class DashboardWeb extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'Profile Settings',
-                                    style: GoogleFonts.playfairDisplay(
-                                        color: textColor,
-                                        fontSize: 1.5.t,
-                                        fontWeight: FontWeight.bold),
+                                  TextButton(
+                                    onPressed:(){
+                                      Get.to(() => ProfileSettingsPage());
+                                    },
+                                    child: Text('Profile Settings',
+                                      style: GoogleFonts.playfairDisplay(
+                                          color: textColor,
+                                          fontSize: 1.5.t,
+                                          fontWeight: FontWeight.bold),),
                                   ),
                                   SizedBox(height: 2.0.h),
-                                  ProfileCard()
+                                  ProfileSettingsCard()
                                 ],
                               ),
                             ),

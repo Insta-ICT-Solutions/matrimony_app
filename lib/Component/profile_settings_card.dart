@@ -1,3 +1,4 @@
+import 'package:bright_weddings/Component/switch_list_tile.dart';
 import 'package:bright_weddings/Controller/profile_controller.dart';
 import 'package:bright_weddings/Helper/colors.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,7 @@ import 'package:bright_weddings/Helper/size_config.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ProfileCard extends StatelessWidget {
+class ProfileSettingsCard extends StatelessWidget {
 
   final ProfileController controller = Get.find<ProfileController>();
 
@@ -64,7 +65,7 @@ class ProfileCard extends StatelessWidget {
                   ),
                 ),
                 Divider(),
-                Obx(()=>_buildSwitchListTile(
+                Obx(()=>CustomSwitchListTile(
                   title: 'Profile visible',
                   subtitle: 'You can set-up the visibility of profile.',
                   value: controller.isProfileVisible.value,
@@ -73,7 +74,7 @@ class ProfileCard extends StatelessWidget {
                   },
                 )),
                 Divider(),
-                Obx(()=>_buildSwitchListTile(
+                Obx(()=>CustomSwitchListTile(
                   title: 'Change Status',
                   subtitle: 'You can change the status of profile.',
                   value: controller.isStatusChangeable.value,
@@ -90,30 +91,5 @@ class ProfileCard extends StatelessWidget {
     );
   }
 
-  Widget _buildSwitchListTile({
-    required String title,
-    required String subtitle,
-    required bool value,
-    required ValueChanged<bool> onChanged,
-  }) {
-    return SwitchListTile(
-      value: value,
-      onChanged: onChanged,
-      activeColor: Colors.blue,
-      title: Text(
-        title,
-        style: GoogleFonts.poppins(
-          color: textColor,
-          fontSize: 1.5.t,
-        ),
-      ),
-      subtitle: Text(
-        subtitle,
-        style: GoogleFonts.poppins(
-          fontSize: 0.9.t,
 
-        ),
-      ),
-    );
-  }
 }

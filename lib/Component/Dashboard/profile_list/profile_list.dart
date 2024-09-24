@@ -49,6 +49,7 @@ ProfileList({super.key});
                     ],
                   ),
                   Row(
+
                     children: [
                       CircularBullet(),
                       SizedBox(width: 0.5.w,),
@@ -98,7 +99,7 @@ ProfileList({super.key});
                     children: [
                       InkWell(
                         onTap: (){
-                          Get.to(() => ProfileDetails(user: user,));
+                          Get.to(() => ProfileDetails());
                         },
                         child: Container(
                           height: 2.h,
