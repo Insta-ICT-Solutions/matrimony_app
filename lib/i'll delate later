@@ -1,0 +1,85 @@
+import 'package:bright_weddings/Component/switch_list_tile.dart';
+import 'package:bright_weddings/Controller/profile_controller.dart';
+import 'package:bright_weddings/Helper/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../../../View/Profile/ProfileDetails/profile_details.dart';
+import '../circular_bullet.dart';
+import '../image_card.dart';
+
+class DashboardSuccessStory extends StatelessWidget {
+  final ProfileController controller = Get.find<ProfileController>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(1.h),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(2.w),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Text(
+                'Profile',
+                style: GoogleFonts.poppins(
+                  color: textColor,
+                  fontSize: 1.9.t,
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                margin: EdgeInsets.all(20),
+                // width: 400,
+                // height: 300,
+                child: Image.asset(
+                  'assets/images/couple.jpg',
+                  height: 250,
+                  width: 300,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(width: 20),
+          Container(
+            width: 1, // Width of the vertical line
+            height: 300, // Height of the vertical line
+            color: Colors.grey, // Color of the vertical line
+          ),
+          SizedBox(width: 20),
+          Column(
+            children: [
+              Text(
+                'Profiles',
+                style: GoogleFonts.poppins(
+                  color: textColor,
+                  fontSize: 1.5.t,
+                ),
+              ),
+              SizedBox(height: 1.h),
+
+
+
+
+
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+}

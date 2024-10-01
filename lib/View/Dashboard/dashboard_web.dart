@@ -1,5 +1,7 @@
 import 'package:bright_weddings/Component/AppBar/header.dart';
 import 'package:bright_weddings/Component/Dashboard/SideBar/sidebar.dart';
+import 'package:bright_weddings/Component/Dashboard/success_story/dashboard_success_story.dart';
+import 'package:bright_weddings/Component/Dashboard/success_story/success_story.dart';
 import 'package:bright_weddings/Component/footer.dart';
 import 'package:bright_weddings/Component/profile_settings_card.dart';
 import 'package:bright_weddings/Controller/screen_controller.dart';
@@ -204,28 +206,62 @@ class DashboardWeb extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   TextButton(
-                                    onPressed:(){
+                                    onPressed: () {
                                       Get.to(() => ProfileSettingsPage());
                                     },
-                                    child: Text('Profile Settings',
+                                    child: Text(
+                                      'Profile Settings',
                                       style: GoogleFonts.playfairDisplay(
-                                          color: textColor,
-                                          fontSize: 1.5.t,
-                                          fontWeight: FontWeight.bold),),
+                                        color: textColor,
+                                        fontSize: 1.5.t,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                   SizedBox(height: 2.0.h),
-                                  ProfileSettingsCard()
+                                  ProfileSettingsCard(),
                                 ],
                               ),
                             ),
+                            SizedBox(height: 3.0.h),
+                            Container(
+                              //key: _profileSettingsKey,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Get.to(() => ProfileSettingsPage());
+                                    },
+                                    child: Text(
+                                      'Success Stories',
+                                      style: GoogleFonts.playfairDisplay(
+                                        color: textColor,
+                                        fontSize: 1.5.t,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 2.0.h),
+                                  DashboardSuccessStory(),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 3.0.h),
+                            SizedBox(height: 2.0.h),
+
+                            SizedBox(height: 3.0.h),
+
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
+                SizedBox(height: 2.0.h),
+               // successStory(),
                 SizedBox(height: 10.0.h),
-                Footer()
+                Footer(),
               ],
             ),
           ),
