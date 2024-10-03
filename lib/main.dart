@@ -1,6 +1,7 @@
 import 'package:bright_weddings/View/Dashboard/dashboard.dart';
 import 'package:bright_weddings/View/Login/login.dart';
 import 'package:bright_weddings/View/Profile/profiles.dart';
+import 'package:bright_weddings/View/welcome_page/welcome_page.dart';
 import 'package:bright_weddings/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
               ),
               home:
               // successStory(),
-              Profiles(),
+             WelcomePage(),
               // LoginPage(),
 
               builder: EasyLoading.init());
