@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "749580264206",
+    "project_id": "bright-weddings",
+    "storage_bucket": "bright-weddings.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749580264206:android:d43ae1c3ece3fedb1a2d5f",
+        "android_client_info": {
+          "package_name": "com.instagrp.matrimony"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoPuLvcOfmQVGn_ovOEyqMMPG5fs643Ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

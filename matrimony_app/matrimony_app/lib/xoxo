@@ -1,0 +1,407 @@
+import 'dart:math';
+import 'package:bright_weddings/Component/TextFields/input_field.dart';
+import 'package:bright_weddings/Helper/button.dart';
+import 'package:bright_weddings/Helper/colors.dart';
+import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:bright_weddings/View/Login/login_web.dart';
+import 'package:bright_weddings/View/welcome_page/image_card.dart';
+import 'package:bright_weddings/View/welcome_page/utils.dart';
+import 'package:bright_weddings/View/welcome_page/viwes/second_screen.dart';
+import 'package:bright_weddings/View/welcome_page/viwes/second_screen_form/second_screen_login.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:bright_weddings/Component/AppBar/header.dart';
+import 'package:bright_weddings/Component/footer.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
+class WelcomePageController extends GetxController {
+  var selectedImageUrl = ''.obs;
+
+  // List of different image URLs
+  final List<String> imageUrls = [
+    'https://images.pexels.com/photos/28210860/pexels-photo-28210860/free-photo-of-a-bride-and-groom-are-getting-their-wedding-ceremony.jpeg',
+    'https://images.pexels.com/photos/10053754/pexels-photo-10053754.jpeg',
+    'https://images.pexels.com/photos/5759215/pexels-photo-5759215.jpeg',
+    'https://images.pexels.com/photos/27605325/pexels-photo-27605325/free-photo-of-a-bride-and-groom-in-traditional-indian-attire.png',
+  ];
+
+  @override
+  void onInit() {
+    super.onInit();
+    selectRandomImage();
+  }
+
+  // Method to randomly select an image
+  void selectRandomImage() {
+    final random = Random();
+    selectedImageUrl.value = imageUrls[random.nextInt(imageUrls.length)];
+  }
+}
+
+class WelcomePage extends StatelessWidget {
+  // Instantiate the controller using GetX
+  final WelcomePageController controller = Get.put(WelcomePageController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: Header(
+        // showDashboard: false,
+        showLogin: false,
+        showRegistration: false,
+      ),
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          // Background Network Image
+          Positioned.fill(
+            child: Transform.rotate(
+              angle: 2 * pi, // Rotates the image by 360 degrees (2 * pi radians)
+              child: Opacity(
+                opacity: 0.5, // Adjust the opacity value (0.0 is fully transparent, 1.0 is fully opaque)
+                child: Image.network(
+                  'https://images.pexels.com/photos/2395249/pexels-photo-2395249.jpeg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        // height: 650,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(
+                                500.0), // Match the curve of ClipRRect
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(
+                                  0.3), // Shadow color and transparency
+                              spreadRadius: 9, // Spread the shadow a little
+                              blurRadius: 12, // Blur radius for smooth shadow
+                              offset: Offset(0,
+                                  5), // Slight vertical offset for shadow depth
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(500.0),
+                          ),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height,
+                            decoration: BoxDecoration(),
+                            child: Obx(() => Image.network(
+                                  controller.selectedImageUrl.value,
+                                  fit: BoxFit.cover,
+                                )),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(32.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Find Your',
+                                style: GoogleFonts.playfairDisplay(
+                                  color: Colors.red[900],
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'Best Match',
+                                style: GoogleFonts.playfairDisplay(
+                                  color: SysColor.blueShadeColor,
+                                  fontSize: 60,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 70),
+                                child: Text(
+                                  'Welcome to BRIGHT WEDDING,\n'
+                                  'Your trusted partner in finding the perfect life companion. Our platform connects like-minded individuals through a secure and user-friendly interface. With personalized matchmaking, verified profiles, and diverse community features, we aim to help you embark on a beautiful journey of love and togetherness..',
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 15,
+                                    color: Color(0xFF4A5568),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 24),
+                              Row(
+                                children: [
+                                  HoverButton(
+                                    buttonText: 'Get Started',
+                                    height: 25,
+                                    width: 40,
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => LoginWeb()),
+                                      );
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 50,
+                                  ),
+                                  HoverButton(
+                                    buttonText: 'Explore More ',
+                                    height: 25,
+                                    width: 40,
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => LoginWeb()),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 150,
+                              ),
+                              AnimatedTextKit(
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    'Meet Your Soulmate Through Our Trusted Platform!',
+                                    textAlign: TextAlign.center,
+                                    textStyle: FontStyles.welcomeText.copyWith(
+                                        color: SysColor.blueShadeColor,
+                                        fontSize: 25),
+                                    speed: Duration(milliseconds: 100),
+                                  ),
+                                ],
+                                repeatForever: true,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                RegistrationForm(),
+                Stack(
+                  children: [
+                    Positioned(
+                      child: Image(
+                        image: AssetImage('assets/images/rose.jpg'),
+                        fit: BoxFit.cover,
+                        // width: double.infinity,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(width: 20),
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: Colors.transparent,
+                                    radius: 40,
+                                    child:
+                                    Image(
+                                      image: AssetImage(
+                                          'assets/images/who_we_are.png'),
+                                    ),
+                                  ),
+                                  Text('Who We Are',
+                                      style: FontStyles.whoWeAreText),
+                                ],
+                              ),
+                              SizedBox(height: 20),
+                              Text(
+                                  'We are a dedicated team bringing matrimonial solutions to '
+                                  '\nthe masses in their search for their life partner.'
+                                  '\nJoin us in transforming your dreams of a perfect partner'
+                                  '\n into a beautiful reality.',
+                                  textAlign: TextAlign.center,
+                                  style: FontStyles.descriptionText),
+                              SizedBox(height: 200),
+                              Text('Personalized Matchmaking',
+                                  style: FontStyles.whoWeAreText),
+                              SizedBox(height: 20),
+                              Text(
+                                  'We offer customized matchmaking services tailored  '
+                                  '\nto your preferences and requirements,'
+                                  '\n ensuring a perfect match.',
+                                  textAlign: TextAlign.center,
+                                  style: FontStyles.descriptionText),
+                            ],
+                          ),
+                          SizedBox(width: 30),
+                          Column(
+                            children: [
+                              ImageContainer(
+                                imagePath: 'assets/images/1.jpg',
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(50.0),
+                                ),
+                              ),
+                              Dimensions.spacer50,
+                              ImageContainer(
+                                imagePath: 'assets/images/3.jpg',
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(50.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(width: 30),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Dimensions.spacer100,
+                              ImageContainer(
+                                imagePath: 'assets/images/4.jpg',
+                                height: 350,
+                                width: 350,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(50.0),
+                                ),
+                              ),
+                              Dimensions.spacer50,
+                              ImageContainer(
+                                imagePath: 'assets/images/7.jpg',
+                                height: 300,
+                                width: 350,
+                                borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(50.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 50),
+                      height: 700,
+                      width: 700,
+                      child: Image(
+                        image: AssetImage('assets/images/mt.png'),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          width: 10, // Adjust the width as needed
+                          height: 200, // Height of the line
+                          decoration: BoxDecoration(
+                            color: SysColor.pinkShade,
+                          ),
+                        ),
+                        Dimensions.spacer40,
+                        Container(
+                          width: 10, // Adjust the width as needed
+                          height: 200, // Height of the line
+                          decoration: BoxDecoration(
+                            color: SysColor.pinkShade,
+                          ),
+                        ),
+                        Dimensions.spacer40,
+                        Container(
+                          width: 10, // Adjust the width as needed
+                          height: 200, // Height of the line
+                          decoration: BoxDecoration(
+                            color: SysColor.pinkShade,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Dimensions.spacer100,
+                        Text(
+                          '"Our matrimony website is dedicated to \n'
+                          'helping you find your perfect match. \n'
+                          'With advanced search filters and \n'
+                          'verified profiles."',
+                          style: FontStyles.bodyText.copyWith(fontSize: 24),
+                          textAlign: TextAlign.center,
+                        ),
+                        Dimensions.spacer50,
+                        Text(
+                          '“we ensure a safe and personalized \n'
+                          'experience for every user. Start your \n'
+                          'journey towards a meaningful \n'
+                          'relationship today.”',
+                          style: FontStyles.bodyText.copyWith(fontSize: 24),
+                          textAlign: TextAlign.center,
+                        ),
+                        Dimensions.spacer100,
+                        Dimensions.spacer50,
+                        Text(
+                          '"At our matrimony website, \n'
+                          'we believe in creating beautiful love \nstories.'
+                          'With a vast database of genuine \n'
+                          'profiles and personalized \n'
+                          'matchmaking services.”',
+                          style: FontStyles.bodyText.copyWith(fontSize: 24),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 100),
+                Footer(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -1,0 +1,207 @@
+import 'dart:math';
+import 'package:bright_weddings/Component/TextFields/input_field.dart';
+import 'package:bright_weddings/Helper/button.dart';
+import 'package:bright_weddings/Helper/colors.dart';
+import 'package:bright_weddings/Helper/size_config.dart';
+import 'package:bright_weddings/View/Login/login_web.dart';
+import 'package:bright_weddings/View/welcome_page/image_card.dart';
+import 'package:bright_weddings/View/welcome_page/utils.dart';
+import 'package:bright_weddings/View/welcome_page/viwes/second_screen.dart';
+import 'package:bright_weddings/View/welcome_page/viwes/second_screen_form/second_screen_login.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:bright_weddings/Component/AppBar/header.dart';
+import 'package:bright_weddings/Component/footer.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
+class WelcomePageController extends GetxController {
+  var selectedImageUrl = ''.obs;
+
+  // List of different image URLs
+  final List<String> imageUrls = [
+    'https://images.pexels.com/photos/28210860/pexels-photo-28210860/free-photo-of-a-bride-and-groom-are-getting-their-wedding-ceremony.jpeg',
+    'https://images.pexels.com/photos/10053754/pexels-photo-10053754.jpeg',
+    'https://images.pexels.com/photos/5759215/pexels-photo-5759215.jpeg',
+    'https://images.pexels.com/photos/27605325/pexels-photo-27605325/free-photo-of-a-bride-and-groom-in-traditional-indian-attire.png',
+  ];
+
+  @override
+  void onInit() {
+    super.onInit();
+    selectRandomImage();
+  }
+
+  // Method to randomly select an image
+  void selectRandomImage() {
+    final random = Random();
+    selectedImageUrl.value = imageUrls[random.nextInt(imageUrls.length)];
+  }
+}
+
+class WelcomePage extends StatelessWidget {
+  // Instantiate the controller using GetX
+  final WelcomePageController controller = Get.put(WelcomePageController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: Header(
+        showLogin: false,
+        showRegistration: false,
+      ),
+      body: Stack(
+        children: [
+          // Background Network Image
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.6, // Adjust the opacity value (0.0 is fully transparent, 1.0 is fully opaque)
+              child: Image.network(
+                'https://images.pexels.com/photos/9798/pexels-photo-9798.jpg',  // Replace this with your image URL
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+
+
+
+          // Main content (on top of background image)
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(500.0),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.3),
+                              spreadRadius: 9,
+                              blurRadius: 12,
+                              offset: Offset(0, 5),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(500.0),
+                          ),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height,
+                            decoration: BoxDecoration(),
+                            child: Obx(() => Image.network(
+                              controller.selectedImageUrl.value,
+                              fit: BoxFit.cover,
+                            )),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(32.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Find Your',
+                                style: GoogleFonts.playfairDisplay(
+                                  color: Colors.red[900],
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'Best Match',
+                                style: GoogleFonts.playfairDisplay(
+                                  color: SysColor.blueShadeColor,
+                                  fontSize: 60,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 70),
+                                child: Text(
+                                  'Welcome to BRIGHT WEDDING,\n'
+                                      'Your trusted partner in finding the perfect life companion...',
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 15,
+                                    color: Color(0xFF4A5568),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 24),
+                              Row(
+                                children: [
+                                  HoverButton(
+                                    buttonText: 'Get Started',
+                                    height: 25,
+                                    width: 40,
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => LoginWeb()),
+                                      );
+                                    },
+                                  ),
+                                  SizedBox(width: 50),
+                                  HoverButton(
+                                    buttonText: 'Explore More',
+                                    height: 25,
+                                    width: 40,
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => LoginWeb()),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 150),
+                              AnimatedTextKit(
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    'Meet Your Soulmate Through Our Trusted Platform!',
+                                    textAlign: TextAlign.center,
+                                    textStyle: FontStyles.welcomeText.copyWith(
+                                        color: SysColor.blueShadeColor,
+                                        fontSize: 25),
+                                    speed: Duration(milliseconds: 100),
+                                  ),
+                                ],
+                                repeatForever: true,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                RegistrationForm(),
+                // Stack and other components (e.g. Footer)
+                Footer(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
