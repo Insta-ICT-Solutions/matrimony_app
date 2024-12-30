@@ -646,10 +646,13 @@ class InfoFormOne extends StatelessWidget {
                   title: "Save & Next",
                   onTap: () async {
                     // Validate the form before proceeding
-                    if (controller.validateForm()) {
-                      await controller.submitFormData();
-                      onNext(); // Proceed to the next step if validation is successful
-                    }
+                    // if (controller.validateForm()) {
+                    //   await controller.submitFormData();
+                    //   onNext(); // Proceed to the next step if validation is successful
+                    // }
+
+                    await controller.submitFormData();
+                    onNext(); // Proceed to the next step if validation is successful
                   },
                 ),
               ],

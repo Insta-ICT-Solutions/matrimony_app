@@ -40,6 +40,14 @@ class NewRegistrationController extends GetxController {
   var selectedDate = Rxn<DateTime>();
   var formattedDate = 'Select Date'.obs;
   var selectedFileUnicode = ''.obs;
+  bool isVip = false; // State managed by the controller
+
+
+
+  // Toggle the VIP state
+  void toggleVip() {
+    isVip = !isVip;
+  }
 
   // Navigation management
   var currentFormIndex = 0.obs;
@@ -331,8 +339,7 @@ class NewRegistrationController extends GetxController {
   }
 
   Future<bool> submitFormData() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
+    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     final String token = sharedPreferences.getString('token') ?? "";
 
     // Create the request model

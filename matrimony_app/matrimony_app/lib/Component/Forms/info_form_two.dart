@@ -15,8 +15,7 @@ class InfoFormTwo extends StatelessWidget {
   final VoidCallback onNext;
   InfoFormTwo({super.key, required this.onBack, required this.onNext});
 
-  final NewRegistrationController controller =
-      Get.find<NewRegistrationController>();
+  final NewRegistrationController controller = Get.find<NewRegistrationController>();
 
 
 
@@ -310,10 +309,13 @@ class InfoFormTwo extends StatelessWidget {
                         // Call the submit method to send the data to the backend
 
 
-                        if (controller.validateForm2()) {
-                          await controller.submitFormData();
-                          onNext(); // Proceed to the next step if validation is successful
-                        }
+                        // if (controller.validateForm2()) {
+                        //   await controller.submitFormData();
+                        //   onNext(); // Proceed to the next step if validation is successful
+                        // }
+
+                        await controller.submitFormData();
+                        onNext(); // Proceed to the next step if validation is successful
 
                       },
 
