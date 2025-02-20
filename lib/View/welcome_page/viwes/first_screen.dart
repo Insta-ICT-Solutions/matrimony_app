@@ -1,11 +1,13 @@
 import 'dart:math';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bright_weddings/Helper/button.dart';
+import 'package:bright_weddings/View/Login/login.dart';
 import 'package:bright_weddings/View/welcome_page/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
@@ -124,12 +126,24 @@ class FirstPage extends StatelessWidget {
                       children: [
                         HoverButton(
                           buttonText: 'Get Started',
+                          horizontalPadding:40,
+                          verticalPadding: 20,
+                          onPressed: () {
+                            Get.to(() => LoginPage()); // Wrap Get.to() inside an anonymous function
+                          },
                         ),
                         SizedBox(
                           width: 50,
                         ),
                         HoverButton(
                           buttonText: 'Explore More ',
+                            horizontalPadding:40,
+                            verticalPadding: 20,
+                          onPressed: () {
+                            Get.to(() => LoginPage()); // Wrap Get.to() inside an anonymous function
+                          },
+
+
                         ),
                       ],
                     ),
